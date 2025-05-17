@@ -1,8 +1,8 @@
 # Robot Production System
 
-In an increasingly automated world, intelligent production systems have become a key component of modern industry. Today's factories not only produce goods, but also advanced technology such as robots that perform a wide variety of roles in society — from helping with household tasks to participating in industrial processes and even security operations.
+In an increasingly automated world, intelligent production systems have become a key component of modern industry. Today's factories not only produce goods, but also advanced technology such as robots that perform a wide variety of roles in society, from helping with household tasks to participating in industrial processes and even security operations.
 
-This project simulates a **virtual robot factory**, where different types of robots are produced with specific functionalities. The simulation focuses on how a factory can create, organize, and control multiple robot types with different capabilities.
+This project simulates a virtual robot factory, where different types of robots are produced with specific functionalities. The simulation focuses on how a factory can create, organize, and control multiple robot types with different capabilities.
 
 I think this proyect is interesting for this reasons:
 
