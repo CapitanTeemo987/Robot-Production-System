@@ -4,7 +4,7 @@ In an increasingly automated world, intelligent production systems have become a
 
 This project simulates a **virtual robot factory**, where different types of robots are produced with specific functionalities. The simulation focuses on how a factory can create, organize, and control multiple robot types with different capabilities.
 
-I think this proyecs is interesting for this reasons:
+I think this proyect is interesting for this reasons:
 
 - It applies core object-oriented programming concepts such as inheritance, polymorphism (i know we haven't seen this topic, but it is important), composition, and abstraction.
 - It models a realistic and flexible system that can be easily expanded with more robot types or behaviors.
