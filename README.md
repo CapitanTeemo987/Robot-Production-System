@@ -6,7 +6,7 @@ This project simulates a **virtual robot factory**, where different types of rob
 
 I think this proyecs is interesting for this reasons:
 
-- It **applies core object-oriented programming concepts** such as inheritance, polymorphism (i know we haven't seen this topic, but it is important), composition, and abstraction.
+- It applies core object-oriented programming concepts such as inheritance, polymorphism (i know we haven't seen this topic, but it is important), composition, and abstraction.
 - It models a realistic and flexible system that can be easily expanded with more robot types or behaviors.
 - It offers insight into how an automated production system might be structured.
 - It can be related to fields like robotics, artificial intelligence, manufacturing, and industrial software systems.
