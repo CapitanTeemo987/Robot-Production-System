@@ -21,5 +21,4 @@ I think this proyect is interesting for this reasons:
 - `controller.h` – Oversees the overall operation of the system.
 - `main.cpp` – Entry point for running the simulation.
 
-### Manuel Valentino Ortiz Sánchez - A01712296
 I'll keep this README up to date
