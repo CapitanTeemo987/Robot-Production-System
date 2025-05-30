@@ -1,4 +1,4 @@
-#include "C:\Users\V\Desktop\Progra\Robot\include\DomesticRobot.h"
+#include "DomesticRobot.h"
 
 DomesticRobot::DomesticRobot(){
     bool isStuck = false;
@@ -6,6 +6,10 @@ DomesticRobot::DomesticRobot(){
 
 DomesticRobot::DomesticRobot(int id, std::string model, bool isStuck) : Robot(id, model){
     this->isStuck = false;
+}
+
+void DomesticRobot::setStuckStatus(bool stuck){
+    isStuck = stuck;
 }
 
 void DomesticRobot::getInfo(){

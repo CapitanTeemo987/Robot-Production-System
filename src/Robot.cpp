@@ -1,4 +1,4 @@
-#include "C:\Users\V\Desktop\Progra\Robot\include\Robot.h"
+#include "Robot.h"
 #include <iostream>
 
 
@@ -48,7 +48,7 @@ int Robot::getId(){
     return id;
 }
 
-int Robot::getOperatinHours(){
+int Robot::getOperatingHours(){
     return operatingHours;
 }
 
