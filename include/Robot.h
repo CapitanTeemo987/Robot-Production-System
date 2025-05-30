@@ -24,7 +24,7 @@ class Robot{
         //getters and setters
         int getBattery();
         int getId();
-        int getOperatinHours();
+        int getOperatingHours();
         std::string getModel();
         std::string getStatus();
 
