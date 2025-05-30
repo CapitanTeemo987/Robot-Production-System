@@ -18,7 +18,6 @@ I think this proyect is interesting for this reasons:
 - `IndustrialRobot.h` – Inherits from `Robot`, focuses on production and assembly tasks.
 - `MilitarRobot.h` – Inherits from `Robot`, includes security or defense functions.
 - `Fabric.h` – Class that manages the production, maintenance, and registration of robots.
-- `controller.h` – Oversees the overall operation of the system.
 - `main.cpp` – Entry point for running the simulation.
 
 I'll keep this README up to date
