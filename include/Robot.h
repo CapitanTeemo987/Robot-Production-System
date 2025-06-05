@@ -17,9 +17,9 @@ class Robot{
         Robot(int, std::string);
 
         //common methods
-        virtual void performTask();
-        virtual void getInfo();
-        virtual void recharge();
+        virtual std::string performTask();
+        virtual std::string getInfo();
+        virtual std::string recharge();
 
         //getters and setters
         int getBattery();

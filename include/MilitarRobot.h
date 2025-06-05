@@ -1,6 +1,6 @@
 #ifndef MILITARROBOT_H
 #define MILITARROBOT_H
-#include "Robot.cpp"
+#include "Robot.h"
 
 
 class MilitarRobot : public Robot{
@@ -20,9 +20,9 @@ class MilitarRobot : public Robot{
         void rechargeAmmo();
 
         //polymorphism 
-        void performTask() override;
-        void getInfo() override;
-        void recharge() override; 
+        std::string performTask() override;
+        std::string getInfo() override;
+        std::string recharge() override; 
 };
 
 #endif

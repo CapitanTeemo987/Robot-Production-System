@@ -1,6 +1,6 @@
 #ifndef INDUSTRIALROBOT_H
 #define INDUSTRIALROBOT_H
-#include "Robot.cpp"
+#include "Robot.h"
 
 
 class IndustrialRobot : public Robot{
@@ -13,12 +13,12 @@ class IndustrialRobot : public Robot{
         IndustrialRobot(int, std::string, float);
 
         void setPrecision(float);
-        void calibrate();
+        std::string calibrate();
 
         //polymorphism 
-        void performTask() override;
-        void getInfo() override;
-        void recharge() override; 
+        std::string performTask() override;
+        std::string getInfo() override;
+        std::string recharge() override; 
 };
 
 #endif

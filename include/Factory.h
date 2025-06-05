@@ -6,6 +6,7 @@
 #include "DomesticRobot.h"
 #include "MilitarRobot.h"
 #include "Robot.h"
+#include <string>
 #include <vector>
 
 class Factory{
@@ -22,14 +23,13 @@ class Factory{
 
         void addRobot(Robot* robot);
         void removeRobot(int id);
+        Robot* findRobotById(int);
 
-        void showAllRobots();
-        void showRobotsByType();
-        void showFactoryStats();
+        std::string showAllRobots();
+        std::string showRobotsByType();
 
         int getTotalRobots();
         int getTotalProduced();
-        int getRobotsInMaintenance();
         std::vector<Robot*> getRobots();
 
 };

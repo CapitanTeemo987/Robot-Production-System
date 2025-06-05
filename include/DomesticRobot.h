@@ -1,6 +1,6 @@
 #ifndef DOMESTICROBOT_H
 #define DOMESTICROBOT_H
-#include "Robot.cpp"
+#include "Robot.h"
 
 
 class DomesticRobot : public Robot{
@@ -15,9 +15,9 @@ class DomesticRobot : public Robot{
         void setStuckStatus(bool);
 
         //polymorphism 
-        void performTask() override;
-        void getInfo() override;
-        void recharge() override; 
+        std::string performTask() override;
+        std::string getInfo() override;
+        std::string recharge() override; 
 };
 
 #endif
