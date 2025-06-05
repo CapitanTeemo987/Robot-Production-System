@@ -1,4 +1,5 @@
 #include "IndustrialRobot.h"
+#include <sstream>
 
 IndustrialRobot::IndustrialRobot(){
     precision = 100; 
@@ -12,31 +13,39 @@ void IndustrialRobot::setPrecision(float precision){
     this->precision = precision;
 }
 
-void IndustrialRobot::calibrate(){
-    std::cout << "Calibrating..." << std::endl;
+std::string IndustrialRobot::calibrate(){
+    std::stringstream ss;
+    ss << "Calibrating...\n";
     precision = 100;
+    return ss.str();
 }
 
-void IndustrialRobot::getInfo(){
-    Robot::getInfo();
-    std::cout << "Percentage of precision: " << precision;
+std::string IndustrialRobot::getInfo(){
+    std::stringstream ss;
+    ss << Robot::getInfo();
+    ss << "Percentage of precision: " << precision;
+    return ss.str();
 }
 
-void IndustrialRobot::performTask(){
+std::string IndustrialRobot::performTask(){
+    std::stringstream ss;
     if(precision < 95){
-        std::cout << "The robot can't work, please calibrate the robot";
-        IndustrialRobot::calibrate();
+        ss << "The robot can't work, please calibrate the robot";
+        ss << IndustrialRobot::calibrate();
     }
     else if(battery < 15){
-        std::cout << "Low battery";
+        ss << "Low battery";
     }
     else{
-        std::cout << "Working";
+        ss << "Working";
         battery -= 10;
         operatingHours += 1;
     }
+    return ss.str();
 }
 
-void IndustrialRobot::recharge(){
-    Robot::recharge();
+std::string IndustrialRobot::recharge(){
+    std::stringstream ss;
+    ss << Robot::recharge();
+    return ss.str();
 }

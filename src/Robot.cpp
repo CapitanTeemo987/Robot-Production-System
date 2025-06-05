@@ -1,5 +1,5 @@
 #include "Robot.h"
-#include <iostream>
+#include <sstream>
 
 
 Robot::Robot(){
@@ -13,31 +13,40 @@ Robot::Robot(){
 Robot::Robot(int id, std::string model){
     this->id = id;
     this->model = model; 
+    this->battery = 100;      
+    this->operatingHours = 0; 
+    this->status = "";  
 }
 
-void Robot::performTask(){
+std::string Robot::performTask(){
+    std::stringstream ss;
     if(battery < 15){
-        std::cout << "Low battery";
+        ss << "Low battery";
     }
     else{
-        std::cout << "Waiting";
+        ss << "Waiting";
         battery -= 10;
         operatingHours += 1;
     }
+    return ss.str();
 }
 
-void Robot::getInfo(){
-    std::cout << "Robot's id: " << id << ", model: " << model << std::endl;
-    std::cout << "current battery: " << battery << "%, " << "operating hours: " << operatingHours << ", status: " << status << std::endl;
+std::string Robot::getInfo(){
+    std::stringstream ss;
+    ss << "\nRobot's id: " << id << ", model: " << model;
+    ss << "\ncurrent battery: " << battery << "%, " << "operating hours: " << operatingHours << ", status: " << status;
+    return ss.str();
 }
 
-void Robot::recharge(){
+std::string Robot::recharge(){
+    std::stringstream ss;
     status = "Charging";
-    std::cout << "Robot " << id << " is charging...\n";
+    ss << "Robot " << id << " is charging...\n";
 
     battery = 100; 
 
-    std::cout <<"Robot " << id << "is fully charged";
+    ss <<"Robot " << id << "is fully charged";
+    return ss.str();
 }
 
 int Robot::getBattery(){

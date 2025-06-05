@@ -1,6 +1,7 @@
 #include "MilitarRobot.h"
+#include <sstream>
 
-MilitarRobot::MilitarRobot(){
+MilitarRobot::MilitarRobot() : Robot(){
     weapon = "Rifle";
     caliber = ".223 Remington";
     ammo = 100; 
@@ -20,26 +21,32 @@ void MilitarRobot::rechargeAmmo(){
     ammo = 100;
 }
 
-void MilitarRobot::getInfo(){
-    Robot::getInfo();
-    std::cout << "Total ammo: " << ammo;
+std::string MilitarRobot::getInfo(){
+    std::stringstream ss;
+    ss << Robot::getInfo();
+    ss << "Total ammo: " << ammo;
+    return ss.str();
 }
 
-void MilitarRobot::performTask(){
+std::string MilitarRobot::performTask(){
+    std::stringstream ss;
     if(ammo < 15){
-        std::cout << "The robot doesn't have enough ammunition, please recharge";
+        ss << "The robot doesn't have enough ammunition, please recharge";
         MilitarRobot::rechargeAmmo();
     }
     else if(battery < 15){
-        std::cout << "Low battery";
+        ss << "Low battery";
     }
     else{
-        std::cout << "Ready for service";
+        ss << "Ready for service";
         battery -= 10;
         operatingHours += 1;
     }
+    return ss.str();
 }
 
-void MilitarRobot::recharge(){
-    Robot::recharge();
+std::string MilitarRobot::recharge(){
+    std::stringstream ss;
+    ss << Robot::recharge();
+    return ss.str();
 }

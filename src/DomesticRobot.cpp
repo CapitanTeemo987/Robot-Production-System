@@ -1,36 +1,43 @@
 #include "DomesticRobot.h"
+#include <sstream>
 
 DomesticRobot::DomesticRobot(){
     bool isStuck = false;
 }
 
 DomesticRobot::DomesticRobot(int id, std::string model, bool isStuck) : Robot(id, model){
-    this->isStuck = false;
+    this->isStuck = isStuck;
 }
 
 void DomesticRobot::setStuckStatus(bool stuck){
     isStuck = stuck;
 }
 
-void DomesticRobot::getInfo(){
-    Robot::getInfo();
-    std::cout << "State of stuck: " << isStuck;
+std::string DomesticRobot::getInfo(){
+    std::stringstream ss;
+    ss << Robot::getInfo();
+    ss << "State of stuck: " << isStuck;
+    return ss.str();
 }
 
-void DomesticRobot::performTask(){
-    if(!isStuck){
-        std::cout << "The robot is stuck";
+std::string DomesticRobot::performTask(){
+    std::stringstream ss;
+    if(isStuck){
+        ss << "The robot is stuck";
     }
     else if(battery < 15){
-        std::cout << "Low battery";
+        ss << "Low battery";
     }
     else{
-        std::cout << "Cleaning";
+        ss << "Cleaning";
         battery -= 10;
         operatingHours += 1;
     }
+    return ss.str();
 }
 
-void DomesticRobot::recharge(){
-    Robot::recharge();
+std::string DomesticRobot::recharge(){
+    std::stringstream ss;
+    ss << Robot::recharge();
+    return ss.str();
 }
