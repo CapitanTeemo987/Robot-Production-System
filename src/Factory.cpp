@@ -1,5 +1,6 @@
 #include "Factory.h"
 #include <sstream>
+#include <algorithm>
 
 Factory::Factory(){
     nextId = 0;
@@ -26,6 +27,62 @@ Robot* Factory::createMilitarRobot(std::string model, std::string weapon, std::s
     totalProduced++;
     return robot;
 }    
+
+//Domestic robot
+Robot* Factory::createRobot(std::string type, std::string model, bool isStuck){
+    Robot* robot = nullptr;
+    std::transform(type.begin(), type.end(), type.begin(), ::tolower); //This is to convert the type to lowercase
+    
+    if(type == "domestic"){
+        robot = new DomesticRobot(nextId++, model, isStuck);
+        robots.push_back(robot);
+        totalProduced++;
+    }
+    return robot;
+}
+
+//Industrial robot
+Robot* Factory::createRobot(std::string type, std::string model, float presicion){
+    Robot* robot = nullptr;
+    std::transform(type.begin(), type.end(), type.begin(), ::tolower); //This is to convert the type to lowercase
+
+    if(type == "industrial"){
+        robot = new IndustrialRobot(nextId++, model, presicion);
+        robots.push_back(robot);
+        totalProduced++;
+    }
+    return robot;
+}
+
+//Militar robot
+Robot* Factory::createRobot(std::string type, std::string model, std::string weapon, std::string caliber){
+    Robot* robot = nullptr;
+    std::transform(type.begin(), type.end(), type.begin(), ::tolower); 
+
+    if(type == "militar"){
+        robot = new MilitarRobot(nextId++, model, weapon, caliber);
+        robots.push_back(robot);
+        totalProduced++;
+    }
+    return robot;
+}
+
+Robot* Factory::createRobot(std::string type, std::string model){
+    Robot* robot = nullptr;
+    std::transform(type.begin(), type.end(), type.begin(), ::tolower); 
+
+    if(type == "domestic"){
+        robot = createRobot(type, model, false); 
+    }
+    else if(type == "industrial"){
+        robot = createRobot(type, model, 100.0f); 
+    }
+    else if(type == "militar" || type == "military"){
+        robot = createRobot(type, model, "Rifle", ".223 Remington"); 
+    }
+    
+    return robot;
+}
 
 void Factory::addRobot(Robot* robot){
     robots.push_back(robot);
@@ -104,6 +161,6 @@ int Factory::getTotalProduced(){
 }
 
 std::vector<Robot*> Factory::getRobots(){
-    return robots;
+    return robots; //This is useful when printing the robots out in the main
 }
 

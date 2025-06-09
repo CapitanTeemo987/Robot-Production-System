@@ -1,6 +1,6 @@
 #include "Robot.h"
 #include <sstream>
-
+#include <iostream>
 
 Robot::Robot(){
     battery = 100; 
@@ -18,23 +18,10 @@ Robot::Robot(int id, std::string model){
     this->status = "";  
 }
 
-std::string Robot::performTask(){
-    std::stringstream ss;
-    if(battery < 15){
-        ss << "Low battery";
-    }
-    else{
-        ss << "Waiting";
-        battery -= 10;
-        operatingHours += 1;
-    }
-    return ss.str();
-}
 
-std::string Robot::getInfo(){
+std::string Robot::getInfo() const{
     std::stringstream ss;
-    ss << "\nRobot's id: " << id << ", model: " << model;
-    ss << "\ncurrent battery: " << battery << "%, " << "operating hours: " << operatingHours << ", status: " << status;
+    ss << "\nRobot's id: " << id << "\nModel: " << model << "\nCurrent battery: " << battery << "% " << "\nOperating hours: " << operatingHours << "\nStatus: " << status;
     return ss.str();
 }
 
@@ -49,25 +36,31 @@ std::string Robot::recharge(){
     return ss.str();
 }
 
-int Robot::getBattery(){
+int Robot::getBattery() const{
     return battery;
 }
 
-int Robot::getId(){
+int Robot::getId() const{
     return id;
 }
 
-int Robot::getOperatingHours(){
+int Robot::getOperatingHours() const{
     return operatingHours;
 }
 
-std::string Robot::getModel(){
+std::string Robot::getModel() const{
     return model;
 }
 
-std::string Robot::getStatus(){
+std::string Robot::getStatus() const{
     return status;
 }
+
+std::ostream& operator<<(std::ostream& os, const Robot& robot){
+    os << robot.getInfo();
+    return os;
+}
+
 
 void Robot::setStatus(std::string status){
      this->status = status;
@@ -80,3 +73,4 @@ void Robot::updateBatteryLevel(int battery){
 void Robot::incrementOperatingHours(int operatingHours){
     this->operatingHours = operatingHours;
 }
+

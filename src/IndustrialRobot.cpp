@@ -9,6 +9,10 @@ IndustrialRobot::IndustrialRobot(int id, std::string model, float precision) : R
     this->precision = precision;
 }
 
+float IndustrialRobot::getPrecision() const {
+    return precision;
+}
+
 void IndustrialRobot::setPrecision(float precision){
     this->precision = precision;
 }
@@ -20,27 +24,36 @@ std::string IndustrialRobot::calibrate(){
     return ss.str();
 }
 
-std::string IndustrialRobot::getInfo(){
+bool IndustrialRobot::needsCalibration() const{
+    return precision < minPrecicion;
+}
+
+std::string IndustrialRobot::getInfo() const{
     std::stringstream ss;
     ss << Robot::getInfo();
-    ss << "Percentage of precision: " << precision;
+    ss << "\nPercentage of precision: " << precision;
     return ss.str();
 }
 
 std::string IndustrialRobot::performTask(){
     std::stringstream ss;
-    if(precision < 95){
-        ss << "The robot can't work, please calibrate the robot";
-        ss << IndustrialRobot::calibrate();
-    }
-    else if(battery < 15){
-        ss << "Low battery";
-    }
-    else{
-        ss << "Working";
+    if (needsCalibration()) {
+        ss << "Robot " << id << " cannot work, precision too low (" << precision << "%)\n";
+        ss << "Minimum required precision: " << minPrecicion << "%\n";
+        ss << "Please call calibrate() method to restore precision\n";
+    } else if (battery < 15) {
+        ss << "Low battery, cannot perform industrial task\n";
+    } else {
+        ss << "Working on industrial task...\n";
         battery -= 10;
         operatingHours += 1;
+        status = "Working";
+        
+        if (precision > minPrecicion) {
+            precision -= 0.5; // Precision degrades slightly with use
+        }
     }
+    
     return ss.str();
 }
 
