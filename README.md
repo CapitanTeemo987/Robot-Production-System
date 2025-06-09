@@ -20,5 +20,5 @@ I think this proyect is interesting for this reasons:
 - `Fabric.h` – Class that manages the production, maintenance, and registration of robots.
 - `main.cpp` – Entry point for running the simulation.
 
-I'll keep this README up to date
+
 ![UML](https://github.com/user-attachments/assets/5bc4ce4f-5218-46f6-b609-c4f5ec83b158)
