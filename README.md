@@ -93,7 +93,7 @@ Management Methods:
 - showAllRobots()/showRobotsByType(): Display and organization utilities
 - getTotalRobots()/getTotalProduced(): Statistical information
 
-# The system demonstrates several important object-oriented principles:
+### The system demonstrates several important object-oriented principles:
 
 - Inheritance: All robot types inherit common functionality from the Robot base class
 - Polymorphism: The same interface (performTask()) behaves differently for each robot type
@@ -101,5 +101,5 @@ Management Methods:
 - Encapsulation: Each class manages its own internal state and provides controlled access
 - Factory Pattern: Centralized object creation with multiple creation strategies
 
-## UML
+### UML
 ![UML](https://github.com/user-attachments/assets/5bc4ce4f-5218-46f6-b609-c4f5ec83b158)
