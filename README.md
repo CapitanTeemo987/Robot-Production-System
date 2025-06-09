@@ -17,11 +17,11 @@ I think this proyect is interesting for this reasons:
 Purpose: Serves as the foundation for all robot types in the system, defining common attributes and behaviors that every robot must have.
 Attributes:
 
-battery: Current battery level (0-100%)
-id: Unique identifier for each robot
-operatingHours: Total hours the robot has been active
-model: String representing the robot model
-status: Current operational status
+battery: Current battery level (0-100%).
+id: Unique identifier for each robot.
+operatingHours: Total hours the robot has been active.
+model: String representing the robot model.
+status: Current operational status.
 
 Key Methods:
 
@@ -60,7 +60,7 @@ needsCalibration(): Checks if precision has fallen below minimum threshold
 Purpose: Specialized for security and defense operations with weapon system management.
 Key Attributes:
 
-weapon: Type of weapon 
+weapon: Type of weapon .
 caliber: Ammunition caliber 
 ammo: Current ammunition 
 maxAmmo: Maximum ammunition capacity (100)
