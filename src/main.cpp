@@ -280,5 +280,4 @@ void Menu(){
     std::cout << "11. Remove robot\n";
     std::cout << "12. Create example robots\n";
     std::cout << "0.  Exit\n";
-    std::cout << "----------------------------------------\n";
 }
