@@ -12,12 +12,14 @@ class DomesticRobot : public Robot{
         DomesticRobot();
         DomesticRobot(int, std::string, bool);
 
+        bool getStuckStatus() const;
         void setStuckStatus(bool);
 
-        //polymorphism 
         std::string performTask() override;
-        std::string getInfo() override;
+        std::string getInfo() const override;
         std::string recharge() override; 
+
+        std::string unstuck();
 };
 
 #endif

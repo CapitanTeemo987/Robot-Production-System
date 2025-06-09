@@ -17,16 +17,20 @@ class Robot{
         Robot(int, std::string);
 
         //common methods
-        virtual std::string performTask();
-        virtual std::string getInfo();
+        virtual std::string performTask() = 0;
+        virtual std::string getInfo() const;
         virtual std::string recharge();
 
         //getters and setters
-        int getBattery();
-        int getId();
-        int getOperatingHours();
-        std::string getModel();
-        std::string getStatus();
+        int getBattery() const;
+        int getId() const;
+        int getOperatingHours() const;
+        std::string getModel() const;
+        std::string getStatus() const;
+
+        //operator overload 
+        //i use references in ostream to work with the original
+        friend std::ostream& operator<<(std::ostream& os, const Robot& robot);
 
         void setStatus(std::string);
         void updateBatteryLevel(int);

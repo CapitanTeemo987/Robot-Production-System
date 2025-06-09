@@ -1,7 +1,6 @@
 #ifndef FACTORY_H
 #define FACTORY_H
 
-
 #include "IndustrialRobot.h"
 #include "DomesticRobot.h"
 #include "MilitarRobot.h"
@@ -17,12 +16,18 @@ class Factory{
 
     public: 
         Factory();
-        Robot* createDomesticRobot(std::string model, bool isStuck = false);
-        Robot* createIndustrialRobot(std::string model, float precision = 100.0);
-        Robot* createMilitarRobot(std::string model, std::string weapon = "Rifle", std::string caliber = ".223 Remington");    
+        Robot* createDomesticRobot(std::string , bool);
+        Robot* createIndustrialRobot(std::string , float);
+        Robot* createMilitarRobot(std::string , std::string, std::string); 
 
-        void addRobot(Robot* robot);
-        void removeRobot(int id);
+        //Method overloading
+        Robot* createRobot(std::string , std::string , bool); //this creates a domestic robot
+        Robot* createRobot(std::string , std::string , float); //this creates an industrial robot
+        Robot* createRobot(std::string , std::string , std::string, std::string); //this creates a militar robot
+        Robot* createRobot(std::string , std::string ); //creates the robot with the default values
+
+        void addRobot(Robot*);
+        void removeRobot(int);
         Robot* findRobotById(int);
 
         std::string showAllRobots();
