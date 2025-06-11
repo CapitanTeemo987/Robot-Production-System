@@ -35,7 +35,7 @@ Robot* Factory::createRobot(std::string type, std::string model, bool isStuck){
     
     if(type == "domestic"){
         robot = new DomesticRobot(nextId++, model, isStuck);
-        robots.push_back(robot);
+        Factory::addRobot(robot);
         totalProduced++;
     }
     return robot;
@@ -72,7 +72,7 @@ Robot* Factory::createRobot(std::string type, std::string model){
     std::transform(type.begin(), type.end(), type.begin(), ::tolower); 
 
     if(type == "domestic"){
-        robot = createRobot(type, model, false); 
+        robot = createRobot(type, model, false); //Using the overloaded methods
     }
     else if(type == "industrial"){
         robot = createRobot(type, model, 100.0f); 
@@ -123,9 +123,9 @@ std::string Factory::showRobotsByType(){
     int domesticCount = 0;
     ss << "\nDomestic Robots\n";
     for(Robot* robot : robots){
-        DomesticRobot* domesticPtr = dynamic_cast<DomesticRobot*>(robot);
-        if(domesticPtr != nullptr){
-            ss << robot->getInfo();
+        DomesticRobot* domesticPtr = dynamic_cast<DomesticRobot*>(robot); //What this does is that is tries to convert the pointer robot to a specific pointer
+        if(domesticPtr != nullptr){ //if the last step was successful, it returns the info of that pointer 
+            ss << robot->getInfo() << "\n";
             domesticCount++;
         } 
     }
@@ -135,7 +135,7 @@ std::string Factory::showRobotsByType(){
     for(Robot* robot : robots){
         IndustrialRobot* industrialPtr = dynamic_cast<IndustrialRobot*>(robot);
         if(industrialPtr != nullptr){
-            ss << robot->getInfo();
+            ss << robot->getInfo() << "\n";
             industrialCount++;
         }
     }
@@ -145,7 +145,7 @@ std::string Factory::showRobotsByType(){
     for(Robot* robot : robots){
         MilitarRobot* militarPtr = dynamic_cast<MilitarRobot*>(robot);
         if(militarPtr != nullptr){
-            ss << robot->getInfo();
+            ss << robot->getInfo() << "\n";
             militarCount++;
         }
     }

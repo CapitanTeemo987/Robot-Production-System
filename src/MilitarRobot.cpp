@@ -40,7 +40,9 @@ bool MilitarRobot::needsAmmoRecharge() const{
 
 std::string MilitarRobot::getInfo() const{
     std::stringstream ss;
-    ss << Robot::getInfo();
+    ss << Robot::getInfo(); 
+    ss << "\nWeapon: " << weapon;
+    ss << "\nCaliber: " << caliber;
     ss << "\nTotal ammo: " << ammo;
     return ss.str();
 }

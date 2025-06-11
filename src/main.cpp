@@ -12,13 +12,13 @@ int main() {
     Factory factory;
 
     while(true){
-        std::cout << "\nWelcome to your robot's factory \n";
+        std::cout << "\n\nWelcome to your robot's factory \n";
         Menu();
         std::cout << "\nSelect an option:\n";
         std::cin >> opcion;
 
         if(opcion == 0){
-            std::cout << "Goodbye! Thanks for using Robot Factory.\n";
+            std::cout << "Leaving your Robot Factory.\n";
             break;
         }
 
@@ -32,7 +32,7 @@ int main() {
 
                 Robot* robot = factory.createRobot(type, model);
                 if(robot != nullptr){
-                    std::cout << "Robot created succesfully";
+                    std::cout << "Robot created succesfully\n";
                     std::cout << *robot;
                 }else {
                     std::cout << "Invalid robot type. Please use: domestic, industrial, or militar\n";
@@ -49,10 +49,10 @@ int main() {
 
                 Robot* robot = factory.createRobot("domestic", model, stuckOption);
                 if(robot != nullptr) {
-                    std::cout << "\nDomestic Robot created successfully";
+                    std::cout << "\nDomestic Robot created successfully\n";
                     std::cout << *robot << "\n";
                 } else {
-                    std::cout << "Error creating domestic robot.\n";
+                    std::cout << "\nError creating domestic robot.\n";
                 }
                 break;
             }
@@ -71,7 +71,7 @@ int main() {
 
                 Robot* robot = factory.createIndustrialRobot(model, precision);
                 if(robot != nullptr){
-                    std::cout << "\nIndustrial Robot created successfully";
+                    std::cout << "\nIndustrial Robot created successfully\n";
                     std::cout << *robot << "\n";
                 } else {
                     std::cout << "Error creating industrial robot.\n";
@@ -84,6 +84,7 @@ int main() {
                 std::cin >> model;
                 std::cout << "Enter weapon type (default: Rifle): ";
                 std::cin >> weapon;
+                std::cin.get();
                 std::cout << "Enter caliber (default: .223 Remington): ";
                 std::getline(std::cin, caliber);
                 
@@ -92,7 +93,7 @@ int main() {
 
                 Robot* robot = factory.createMilitarRobot(model, weapon, caliber);
                 if(robot != nullptr){
-                    std::cout << "\nMilitary Robot created successfully";
+                    std::cout << "\nMilitary Robot created successfully\n";
                     std::cout << *robot << "\n";
                 } else {
                     std::cout << "Error creating military robot.\n";
@@ -102,7 +103,7 @@ int main() {
             case 5: {
                 std::vector<Robot*> robots = factory.getRobots();
                 if(robots.empty()){
-                    std::cout << "\nNo robots in factory";
+                    std::cout << "\nNo robots in factory\n";
                 }else{
                     for(Robot* robot : robots){
                         std::cout << *robot << "\n";
@@ -113,7 +114,7 @@ int main() {
                 break;
             }
             case 6: {
-                factory.showRobotsByType();
+                std::cout << factory.showRobotsByType();
                 break;
             }
             case 7: {
@@ -137,8 +138,9 @@ int main() {
 
                 Robot* robot = factory.findRobotById(id);
                 if(robot != nullptr){
-                    robot->performTask();
-                    std::cout << *robot; 
+                    std::string result = robot->performTask();  //Show the message for each performTask method of each class
+                    std::cout << result << std::endl;           
+                    std::cout << *robot;
                 }else{
                     std::cout << "\nThere are no robot with id: " << id;
                 }
@@ -179,7 +181,7 @@ int main() {
                         int choice;
                         std::cin >> choice;
                         if(choice == 1){
-                            std::cout << "Stuck status " << (domesticRobot->getStuckStatus() ? "stuck" : "not stuck");
+                            std::cout << "Stuck status: " << (domesticRobot->getStuckStatus() ? "stuck" : "not stuck");//This is called "ternary operator", it is useful with short conditionals and expressions
                         }else if(choice == 2){
                             std::cout << domesticRobot->unstuck();
                         }
@@ -261,6 +263,10 @@ int main() {
                 std::cout << *militar2 << "\n";
                 break;
             }
+            default: {
+                std::cout << "\nInvalid option, Please select a number between 0-12\n";
+                break;
+            }    
         }
     }
     return 0;
@@ -280,4 +286,5 @@ void Menu(){
     std::cout << "11. Remove robot\n";
     std::cout << "12. Create example robots\n";
     std::cout << "0.  Exit\n";
+    std::cout << "----------------------------------------\n";
 }
