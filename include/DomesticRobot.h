@@ -12,7 +12,7 @@ class DomesticRobot : public Robot{
         DomesticRobot();
         DomesticRobot(int, std::string, bool);
 
-        bool getStuckStatus() const;
+        bool getStuckStatus() const; //The use of const is because it only return information, it does not change variables
         void setStuckStatus(bool);
 
         std::string performTask() override;

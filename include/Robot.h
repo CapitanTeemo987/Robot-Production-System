@@ -17,7 +17,7 @@ class Robot{
         Robot(int, std::string);
 
         //common methods
-        virtual std::string performTask() = 0;
+        virtual std::string performTask() = 0; //This helps to make the class abstract
         virtual std::string getInfo() const;
         virtual std::string recharge();
 

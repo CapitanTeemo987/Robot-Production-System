@@ -16,11 +16,12 @@ class MilitarRobot : public Robot{
         MilitarRobot();
         MilitarRobot(int, std::string, std::string, std::string);
 
+        //getters
         std::string getWeapon() const;
         std::string getCaliber() const;
         int getAmmo() const;
 
-        //setter (only ammo, the weapon is with the robot)
+        //setter 
         void setAmmo(int);
 
         void rechargeAmmo();
